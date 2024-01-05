@@ -16,8 +16,8 @@
     $ages['Lek']=18;
     $ages['Ying']=42;
 
-    echo "3  - ".($ages['Lek']+$ages['Peter'])."(br)";
-    $ages['Peter'] = $ages['Bob'] - $ages['Peter']) . "<br>";
+    echo "3  - ".($ages['Lek']+$ages['Peter'])."<br>";
+    $ages['Peter'] = $ages['Bob'] - $ages['Lek'] . "<br>";
     echo"4 -".$ages['Peter']."<br>";
     ?>
 </body>
