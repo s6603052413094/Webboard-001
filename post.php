@@ -10,6 +10,16 @@
     <hr>
     <div style="text-align: center;">
          ต้องการดูกระทู้หมายเลข <?php echo $_GET['id'] ?> <br>
+         <?php
+            $n = $_GET['id'];
+
+            if(($n%2)==0){
+                echo "กระทู้หมายเลขคู่";
+            } else {
+                echo "กระทู้หมายเลขคี่";
+            }
+
+         ?>
     </div>
     <br>
     <table style="border: 2px solid black; width:40%;" align="center">
