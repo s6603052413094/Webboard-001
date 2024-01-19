@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['id'])){
+    header("location:index.php");
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,19 +16,25 @@
     <h1 style="text-align: center;">Webboard-onii</h1>
     <hr>
     <div style="text-align: center;">
-        <?php
+<?php
         $login=$_POST['login'];
         $pwd=$_POST['pwd'];
-        if($login=="admin" && $pwd=="ad1234"){
-            echo "ยินดีต้อนรับคุณ ADMIN";
-        } else if($login=="member" && $pwd=="mem1234"){
-            echo "ยินดีต้อนรับคุณ member";
-        } else{
-            echo "ชื่อบัญชีของท่านไม่ถูกค้อง";
-        }
+    if($login=="admin" && $pwd=="ad1234"){
+        $_SESSION['username']='admin';
+        $_SESSION['role']='a';
+        $_SESSION['id']=session_id();
+    echo "ยินดีต้อนรับคุณ ADMIN";
+    } else if($login=="member" && $pwd=="mem1234"){
+    echo "ยินดีต้อนรับคุณ member";
+        $_SESSION['username']='member';
+        $_SESSION['role']='m';
+        $_SESSION['id']=session_id();
+    } else{
+    echo "ชื่อบัญชีของท่านไม่ถูกค้อง";
+    }
 
-        echo "<BR> <a href='index.php'>กลับไปหน้าหลัก</a>"
-        ?>
+    echo "<BR> <a href='index.php'>กลับไปหน้าหลัก</a>"
+    ?>
     </div>
 </body>
 </html>

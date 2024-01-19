@@ -31,7 +31,7 @@
         </table>
         <br>
         <div style="text-align: center;">
-            you haven't registered yet ? <a href="register.html">register</a> now.
+            you haven't registered yet ? <a href="register.php">register</a> now.
         </div>
     </form>
 </body>
