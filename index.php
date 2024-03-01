@@ -1,27 +1,54 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Webboard-onii</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Webboard-onii</h1>
-    <hr>
-    <form>
-    หมวดหมู่: 
-    <select name="category">
-         <option value="all">---ทั้ง---</option>
-         <option value="general">General</option>>เรื่องทั่วไป</option>
-         <option value="study">Study</option>
-    </select>
-    <a href="login.html" style="float:right;">เข้าสู่ระบบ</a>
-  </form> 
-  <ul>
-<?php
-    for($i=1;$i<=10;$i++){
-        echo "<li><a href='post.php?id=$i'>กระทู้ที่ $i</a></li>";
-    }
-?>
+    <div class="container-lg">
+        <h1 style="text-align: center;" class="mt-3">Welcome to HomePage</h1>
+ 
+        <?php include "nav.php" ?>
+           
+        <div class="mt-4 d-flex justify-content-between">
+            <div>
+                <label>Category</label>
+                <span class="dropdown">
+                    <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        --ALL--
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">ALL</a></li>
+                    <li><a class="dropdown-item" href="#">Study</a></li>
+                    <li><a class="dropdown-item" href="#">General</a></li>
+                    </ul>
+                </span>
+            </div>
+            <?php if(isset($_SESSION['id'])){?>
+            <div>
+                <a href="newpost.php" class="btn btn-success btn-sm"><i class="bi bi-plus"></i> Create new Topic</a>
+            </div>
+            <?php }?>
+        </div>
+ 
+        <table class="table table-striped mt-4">
+            <?php
+            for($i = 1; $i<=10; $i++){
+                echo "<tr><td class='d-flex justify-content-between'><a href=post.php?id=$i style=text-decoration:none>Topic No.$i</a>";
+                if(isset($_SESSION['id'])&&$_SESSION['role']=='a'){
+                    echo"&nbsp;&nbsp;<a href=delete.php?id=$i class='btn btn-danger btn-sm me-2'><i class='bi bi-trash'></i></a>";
+                }
+                echo"</td></tr>";
+            }
+            ?>
+        </table>
+    </div>
 </body>
 </html>

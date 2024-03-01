@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['id'])){
+    header("location:index.php");
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +13,34 @@
     <title>Verify</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Webboard-onii</h1>
-    <hr>
     <div style="text-align: center;">
         <?php
-        $login=$_POST['login'];
-        $pwd=$_POST['pwd'];
-        if($login=="admin" && $pwd=="ad1234"){
-            echo "ยินดีต้อนรับคุณ ADMIN";
-        } else if($login=="member" && $pwd=="mem1234"){
-            echo "ยินดีต้อนรับคุณ member";
-        } else{
-            echo "ชื่อบัญชีของท่านไม่ถูกค้อง";
-        }
-
-        echo "<BR> <a href='index.php'>กลับไปหน้าหลัก</a>"
+            $Login = $_POST['login'];
+            $Password = $_POST['pwd'];
+ 
+            if ($Login == 'admin' && $Password == '6996') {
+                $_SESSION['username']='admin';
+                $_SESSION['role']='a';
+                $_SESSION['id']=session_id();
+                //redirect to index.php
+                header("location:index.php");
+                die();
+            }
+            else if ($Login == 'member' && $Password == '1234') {
+                $_SESSION['username']='member';
+                $_SESSION['role']='m';
+                $_SESSION['id']=session_id();
+                //redirect to index.php
+                header("location:index.php");
+                die();
+            }
+            else {
+                //create var session
+                $_SESSION['error']='error';
+                //redirect to login.php
+                header("location:login.php");
+                die();
+            }
         ?>
     </div>
 </body>
