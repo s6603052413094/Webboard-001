@@ -18,7 +18,7 @@ if(isset($_SESSION['id'])){
             $Login = $_POST['login'];
             $Password = $_POST['pwd'];
  
-            if ($Login == 'admin' && $Password == '6996') {
+            if ($Login == 'admin' && $Password == 'ad1234') {
                 $_SESSION['username']='admin';
                 $_SESSION['role']='a';
                 $_SESSION['id']=session_id();
@@ -26,7 +26,7 @@ if(isset($_SESSION['id'])){
                 header("location:index.php");
                 die();
             }
-            else if ($Login == 'member' && $Password == '1234') {
+            else if ($Login == 'member' && $Password == 'mem1234') {
                 $_SESSION['username']='member';
                 $_SESSION['role']='m';
                 $_SESSION['id']=session_id();
