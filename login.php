@@ -14,7 +14,7 @@ session_start();
 </head>
 <body>
 <div class="container-lg">
-    <h1 style="text-align: center;" class="mt-3">_oKaKo__</h1>
+    <h1 style="text-align: center;" class="mt-3">Webboard-onii</h1>
     
     <?php include"nav.php";?>
   <div class="row mt-4">
