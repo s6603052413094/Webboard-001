@@ -24,6 +24,16 @@
     </script>
 </head>
 <body>
+    <script>
+        function OnBlurPwd(){
+            let pwd=document.getElementById("pwd");
+            let pwd2=document.getElementById("pwd2");
+            if(pwd.value!==pwd2.value){
+                alert("รหัสผ่านสองช่องไม่ตรงกัน");
+                pwd2.value""; 
+            }
+        }    
+    </script>
     <div class="container">
         <header>
             <h1 style="text-align: center;" class="mt-3">REGISTER MEMBERS</h1>

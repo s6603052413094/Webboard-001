@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container-lg">
-        <h1 style="text-align: center;" class="mt-3">LOGIN PAGE</h1>
+        <h1 style="text-align: center;" class="mt-3">Webboard-onii</h1>
 
         <?php include "nav.php" ?>
         

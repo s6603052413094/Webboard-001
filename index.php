@@ -10,6 +10,12 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Webboard-onii</title>
+    <script>
+        function myfunction(){
+            let r=confirm("ต้องการจะลบจริงหรือไม่?");
+            return r;
+        }
+    </script>
 </head>
 <body>
     <div class="container-lg">
@@ -70,7 +76,7 @@ session_start();
                     echo "<td>[ $row[0] ] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><br>$row[3] - $row[4]</td>";
                     
                     if (isset($_SESSION['id']) && $_SESSION['role'] == 'a') {
-                        echo "<td style='text-align: right;'><button class='btn btn-danger btn-sm ml-2' onclick='confirmDelete($row[2])'><i class='bi bi-trash'></i></button></td>";
+                        echo "<td style='text-align: right;'><button class='btn btn-danger btn-sm ml-2' onclick='confirmDelete()'><i class='bi bi-trash'></i></button></td>";
                     }
                     
                     echo "</td></tr>";
@@ -80,11 +86,9 @@ session_start();
         </table>
 
         <script>
-            function confirmDelete(postId) {
+            function confirmDelete() {
                 var confirmDelete = confirm('ต้องการลบจริงหรือไม่?');
-                if (confirmDelete) {
-                    window.location.href = 'delete.php?id=' + postId;
-                }
+                return confirmDelete;
             }
         </script>
     </div>
