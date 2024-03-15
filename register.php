@@ -8,29 +8,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Webboard-onii</title>
 
-    <script>
-        function validatePassword() {
-            var passwordInputs = document.getElementsByName("pwd");
-            var password = passwordInputs[0].value;
-            var confirmPassword = passwordInputs[1].value;
-
-            if (password !== confirmPassword) {
-                alert("รหัสผ่านทั้งสองช่องไม่ตรงกัน");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
+    
 </head>
 <body>
     <script>
         function OnBlurPwd(){
             let pwd=document.getElementById("pwd");
             let pwd2=document.getElementById("pwd2");
-            if(pwd.value!==pwd2.value){
+            if(pwd.value !== pwd2.value){
                 alert("รหัสผ่านสองช่องไม่ตรงกัน");
-                pwd2.value""; 
+                pwd2.value = ""; 
             }
         }    
     </script>
@@ -59,7 +46,7 @@
                 <div class="card border-primary">
                     <div class="card-header bg-primary text-white">Register</div>
                     <div class="card-body">
-                        <form action="register_save.php" method="POST" onsubmit="validatePassword()">
+                        <form action="register_save.php" method="POST">
                             <div class="row">
                                 <label class="col-lg-3 col-form-label">Username: </label>
                                 <div class="col-lg-9">
@@ -69,13 +56,13 @@
                             <div class="row mt-3">
                                 <label class="col-lg-3 col-form-label">Password: </label>
                                 <div class="col-lg-9">
-                                    <input type="password" name="pwd" class="form-control" require>
+                                    <input type="password" name="pwd" id="pwd" class="form-control" require>
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <label class="col-lg-3 col-form-label">Confirm Password: </label>
                                 <div class="col-lg-9">
-                                    <input type="password" name="pwd" class="form-control" required>
+                                    <input type="password" name="pwd" id="pwd2" class="form-control" onblur="OnBlurPwd()" required>
                                 </div>
                             </div>
                             <div class="row mt-3">

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2024 at 12:34 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Mar 15, 2024 at 06:16 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `name` varchar(32) NOT NULL
+  `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -49,7 +49,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 
 CREATE TABLE `comment` (
   `id` int(11) NOT NULL,
-  `content` varchar(20148) NOT NULL,
+  `content` varchar(20148) COLLATE utf8_unicode_ci NOT NULL,
   `post_date` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL
@@ -73,8 +73,8 @@ INSERT INTO `comment` (`id`, `content`, `post_date`, `user_id`, `post_id`) VALUE
 
 CREATE TABLE `post` (
   `id` int(11) NOT NULL,
-  `title` varchar(128) NOT NULL,
-  `content` varchar(2048) NOT NULL,
+  `title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `content` varchar(2048) COLLATE utf8_unicode_ci NOT NULL,
   `post_date` datetime NOT NULL,
   `cat_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
@@ -98,12 +98,12 @@ INSERT INTO `post` (`id`, `title`, `content`, `post_date`, `cat_id`, `user_id`) 
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `login` varchar(32) NOT NULL,
-  `password` varchar(64) NOT NULL,
-  `name` varchar(64) NOT NULL,
-  `gender` char(1) NOT NULL,
-  `email` varchar(32) NOT NULL,
-  `role` char(1) NOT NULL
+  `login` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `gender` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `role` char(1) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -112,11 +112,11 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `login`, `password`, `name`, `gender`, `email`, `role`) VALUES
 (1, 'admin', '8dc9fa69ec51046b4472bb512e292d959edd2aef', 'Admin admin', 'o', 'admins1234@email.adm.com', 'a'),
-(10, 'oaktnpy', '3cabc94e5ba8a605d481c8f5a1c8a79d32e2f309', 'Thanaphat Yuenmun', 'm', 's6603052423065@email.kmutnb.ac.t', 'm'),
 (11, 'luffy', 'abec0340a9f3abb5f9c8d649d03f3c6fd08aa682', 'Monkey D. Luffy', 'm', 'monkey.d.luffy@email.co.jp', 'm'),
 (12, 'klopp', '7868bed619311b2d1a91a2e133f1c4613a4ee000', 'Klopp Klopp', 'o', 'klopp123@email.com', 'm'),
 (15, 'harry', '737e255f1623e1fa9588391b58f59ed79714662d', 'Harry', 'm', 'harry.123@email.com', 'm'),
-(16, 'os', '6b33aa4426e7b75ef4b3fe31997f4cee936a52d8', 'Operation System', 'o', 'os1234@em.com', 'm');
+(16, 'os', '6b33aa4426e7b75ef4b3fe31997f4cee936a52d8', 'Operation System', 'o', 'os1234@em.com', 'm'),
+(18, 'poori', 'ed9d0a7852d01292f9fecc4e499f3c18ca49de03', 'poorinut kaithong', 'm', 's6603052413094@email.kmutnb.ac.t', 'm');
 
 --
 -- Indexes for dumped tables
@@ -172,7 +172,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
