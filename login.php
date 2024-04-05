@@ -22,23 +22,23 @@
                     session_start();
                     
                     if (isset($_SESSION['error'])) {
-                        echo "<div class='alert alert-danger'>The Username or Password Incorrrect!</div>";
+                        echo "<div class='alert alert-danger'>ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง</div>";
                         unset($_SESSION['error']);
                     }
                 ?>
 
                 <div class="card">
                     <div class="card-header">
-                        Login
+                        เข้าสู่ระบบ
                     </div>
                     <div class="card-body">
                         <form action="verify.php" method="POST">
                             <div class="form-group">
-                                <label for="user" class="form-label">Login :</label>
+                                <label for="user" class="form-label">ชื่อบัญชี :</label>
                                 <input type="text" id="user" name="login" class="form-control" required>
                             </div>
                             <div class="form-group mt-2">
-                                <label for="pwd" class="form-label">Password :</label>
+                                <label for="pwd" class="form-label">รหัสผ่าน :</label>
                                 <div class="input-group">
                                     <input type="password" name="pwd" class="form-control" id="passwordInput" required>
                                     <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility()">
@@ -58,7 +58,7 @@
         </div>
 
         <div style="text-align: center;">
-            you haven't registered yet ? <a href="register.php">register</a> now.
+            สมัครสมาชิก<a href="register.php">คลิก</a>
         </div>
 
         <script>

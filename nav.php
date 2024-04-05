@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-sm" style="background-color: #d3d3d3;">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
-            <i class="bi bi-house-door-fill"></i> Home
+            <i class="bi bi-house-door-fill"></i> หน้าหลัก
         </a>
         <ul class="navbar-nav">
             <?php
                 if (!isset($_SESSION['id'])) {
                     echo "<li class='nav-item'>
-                            <a class='nav-link' aria-current='page' href='login.php'><i class='bi bi-pencil-square'></i> Login</a>
+                            <a class='nav-link' aria-current='page' href='login.php'><i class='bi bi-pencil-square'></i>เข้าสู่ระบบ</a>
                         </li>";
                 } else {
                     echo "<li class='nav-item dropdown'>
@@ -17,7 +17,7 @@
                             </a>
                             <ul class='dropdown-menu'>
                                 <a class='dropdown-item' href='logout.php'>
-                                    <i class='bi bi-power'></i> Logout
+                                    <i class='bi bi-power'></i> ออกจากระบบ
                                 </a>
                             </ul>
                         </li>";
