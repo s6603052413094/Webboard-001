@@ -47,7 +47,7 @@
         </table>
         <br>
         <div style="text-align: center;">
-             <a href="index.php">กลับหน้าหลัก</a>
+            คุณมีบัญชีอยู่แล้ว <a href="index.php">กลับหน้าหลัก</a>
         </div>
     </form>
 </body>
