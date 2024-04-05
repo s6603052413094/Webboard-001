@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container-lg">
-        <h1 style="text-align: center;" class="mt-3">WELCOME TO HOMEPAGE</h1>
+        <h1 style="text-align: center;" class="mt-3">Webboard-onii</h1>
 
         <?php include "nav.php" ?>
 
@@ -41,7 +41,7 @@
                     }
                     while ($row = $result2->fetch()) {
                         echo "<div class='card border-info mt-3'>";
-                            echo "<div class='card-header bg-info text-white'> Comment No.$commentNumber </div>";
+                            echo "<div class='card-header bg-info text-white'> ความคิดเห็นที่ $commentNumber </div>";
                             echo "<div class='card-body'> $row[1] <br><br> $row[3] - $row[2] </div>";
                         echo "</div>";
                         $commentNumber++;
@@ -49,7 +49,7 @@
                     $conn = null;
                 ?>
                 <div class="card border-success mt-3">
-                    <div class="card-header bg-success text-white"> Leave a comment </div>
+                    <div class="card-header bg-success text-white"> เเสดงความคิดเห็น </div>
                     <div class="card-body">
                         <form action="post_save.php" method="post">
                             <input type="hidden" name="post_id" value="<?= $_GET['id'];?>">
@@ -61,10 +61,10 @@
                             <div class="row">
                                 <div class="col-lg-12 d-flex justify-content-center">
                                     <button type="submit" class="btn btn-success btn-sm text-white me-1">
-                                        <i class="bi bi-box-arrow-up-right"></i> send message
+                                        <i class="bi bi-box-arrow-up-right"></i> บันทึกข้อความ
                                     </button>
                                     <button type="reset" class="btn btn-danger btn-sm ms-1">
-                                        <i class="bi bi-x-square"></i> cancel
+                                        <i class="bi bi-x-square"></i> ยกเลิก
                                     </button>
                                 </div>
                             </div>

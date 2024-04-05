@@ -20,11 +20,12 @@
             <div class="col-lg-3 col-md-2 col-sm-1"></div>
             <div class="col-lg-6 col-md-8 col-sm-10">
                 <?php
+                    session_start();
                     if (isset($_SESSION['add_login'])) {
                         if ($_SESSION['add_login']=="error") {
-                            echo "<div class='alert alert-danger'> Duplicate account name or Datebase problem </div>";
+                            echo "<div class='alert alert-danger'> ชื่อบัญชีซ้ำหรือฐานข้อมูลมีปัญหา </div>";
                         } else {
-                            echo "<div class='alert alert-success'> Account added successfully </div>";
+                            echo "<div class='alert alert-success'> เพิ่มบัญชีเรียบร้อย </div>";
                         }
                         unset($_SESSION['add_login']);
                     }

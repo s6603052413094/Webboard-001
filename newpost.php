@@ -18,7 +18,7 @@ if(!isset($_SESSION['id'])){
 <body>
 <div class="container">
         <header>
-            <h1 style="text-align: center;" class="mt-3">CREATE TOPIC</h1>
+            <h1 style="text-align: center;" class="mt-3">สร้างกระทู้</h1>
         </header>
 
         <?php include "nav.php" ?>
@@ -27,11 +27,11 @@ if(!isset($_SESSION['id'])){
             <div class="col-lg-3 col-md-2 col-sm-1"></div>
             <div class="col-lg-6 col-md-8 col-sm-10">
                 <div class="card border-info">
-                    <div class="card-header bg-info text-white">Create new Topic</div>
+                    <div class="card-header bg-info text-white">สร้างกระทู้ใหม่</div>
                     <div class="card-body">
                         <form action="newpost_save.php" method="POST">
                             <div class="row">
-                                <label class="col-lg-3 col-form-label">Category : </label>
+                                <label class="col-lg-3 col-form-label">หมวดหมู่ : </label>
                                 <div class="col-lg-9">
                                     <select name="category" class="form-select">
                                         <?php
@@ -46,13 +46,13 @@ if(!isset($_SESSION['id'])){
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <label class="col-lg-3 col-form-label">Topic : </label>
+                                <label class="col-lg-3 col-form-label">กระทู้ : </label>
                                 <div class="col-lg-9">
                                     <input type="text" name="topic" class="form-control" require>
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <label class="col-lg-3 col-form-label">Content : </label>
+                                <label class="col-lg-3 col-form-label">เนื้อหา : </label>
                                 <div class="col-lg-9">
                                     <textarea name="comment" row="8" class="form-control" require></textarea>
                                 </div>
@@ -60,10 +60,10 @@ if(!isset($_SESSION['id'])){
                             <div class="row mt-3">
                                 <div class="col-lg-12 d-flex justify-content-center">
                                     <button type="submit" class="btn btn-info btn-sm text-white me-1">
-                                        <i class="bi bi-caret-right-square"></i> Save
+                                        <i class="bi bi-caret-right-square"></i> บันทึก
                                     </button>
                                     <button type="reset" class="btn btn-danger btn-sm ms-1">
-                                        <i class="bi bi-x-square"></i> Cancel
+                                        <i class="bi bi-x-square"></i> ยกเลิก
                                     </button>
                                 </div>
                             </div>
