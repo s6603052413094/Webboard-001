@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Webboard-onii</title>
 </head>
-<body>
+<<body>
     <div class="container-lg">
-        <h1 style="text-align: center;" class="mt-3"></h1>
+        <h1 style="text-align: center;" class="mt-3">Webboard-onii</h1>
 
         <?php include "nav.php" ?>
 
@@ -40,7 +40,7 @@
                     $commentNumber = 1;
                     while ($row = $result2->fetch()) {
                         echo "<div class='card border-info mt-3'>";
-                            echo "<div class='card-header bg-info text-white'> ตวามคิดเห็นที่ $commentNumber </div>";
+                            echo "<div class='card-header bg-info text-white'> ความคิดเห็นที่ $commentNumber </div>";
                             echo "<div class='card-body'> $row[0] <br><br> $row[2] - $row[1] </div>";
                         echo "</div>";
                         $commentNumber++;

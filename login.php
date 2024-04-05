@@ -47,8 +47,6 @@
                                     </span>
                                 </div>
                             </div>
-                                </div>
-                            </div>
                             <div class="d-flex justify-content-center mt-3">
                                 <button type="submit" class="btn btn-secondary btn-sm me-1" role="button" value="login">Login</button>
                                 <button type="reset" class="btn btn-danger btn-sm ms-1" role="button" value="reset">Reset</button>
@@ -63,6 +61,28 @@
         <div style="text-align: center;">
             สมัครสมาชิก<a href="register.php">คลิก</a>
         </div>
+        <script>
+            function PasswordVisibility() {
+                var password = document.getElementById("pwd");
+                var show_eyeIcon = document.getElementById("show_eye");
+                var hide_eyeIcon = document.getElementById("hide_eye");
+                hide_eyeIcon.classList.remove("d-none");
+                if (password.type === "password") {
+                    password.type = "text";
+                    // show_eyeIcon.classList.add("d-none");
+                    // hide_eyeIcon.classList.add("d-block");
+                    show_eyeIcon.style.display="none";
+                    hide_eyeIcon.style.display="block";
+                } else {
+                    password.type = "password";
+                    // show_eyeIcon.classList.remove("d-none");
+                    // show_eyeIcon.classList.add("d-block");
+                    // hide_eyeIcon.classList.add("d-none");
+                    show_eyeIcon.style.display="block";
+                    hide_eyeIcon.style.display="none";
+                }
+            }
+        </script>
     </div>
 </body>
 </html>

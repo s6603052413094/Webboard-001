@@ -9,6 +9,17 @@
     <title>Register</title>
 </head>
 <body>
+    <script>
+        function ConfirmPwd() {
+            let pwd1 = document.getElementById("pwd1");
+            let pwd2 = document.getElementById("pwd2");
+
+            if (pwd1.value !== pwd2.value) {
+                alert("รหัสผ่านทั้งสองช่องไม่ตรงกัน");
+                pwd2.value="";
+            }
+        }
+    </script>
     <div class="container">
         <header>
             <h1 style="text-align: center;" class="mt-3">Webboard-onii</h1>
