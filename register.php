@@ -47,6 +47,12 @@
                                 </div>
                             </div>
                             <div class="row mt-3">
+                                <label class="col-lg-3 col-form-label">ยืนยันรหัสผ่าน: </label>
+                                <div class="col-lg-9">
+                                    <input type="password" name="pwd" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
                                 <label class="col-lg-3 col-form-label">ชื่อ-นามสกุล: </label>
                                 <div class="col-lg-9">
                                     <input type="text" name="name" class="form-control" require>

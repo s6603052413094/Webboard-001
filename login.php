@@ -40,10 +40,13 @@
                             <div class="form-group mt-2">
                                 <label for="pwd" class="form-label">รหัสผ่าน :</label>
                                 <div class="input-group">
-                                    <input type="password" name="pwd" class="form-control" id="passwordInput" required>
-                                    <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility()">
-                                        <i id="eyeIcon" class="bi bi-eye-fill"></i>
-                                    </button>
+                                    <input type="password" name="pwd" id="pwd" class="form-control" required>
+                                    <span class="input-group-text" onclick="PasswordVisibility()">
+                                        <i class="bi bi-eye-fill" id="show_eye"></i>
+                                        <i class="bi bi-eye-slash-fill d-none" id="hide_eye"></i>
+                                    </span>
+                                </div>
+                            </div>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center mt-3">
@@ -60,23 +63,6 @@
         <div style="text-align: center;">
             สมัครสมาชิก<a href="register.php">คลิก</a>
         </div>
-
-        <script>
-            function togglePasswordVisibility() {
-                var passwordInput = document.getElementById("passwordInput");
-                var eyeIcon = document.getElementById("eyeIcon");
-
-                if (passwordInput.type === "password") {
-                    passwordInput.type = "text";
-                    eyeIcon.classList.remove("bi-eye-fill");
-                    eyeIcon.classList.add("bi-eye-slash-fill");
-                } else {
-                    passwordInput.type = "password";
-                    eyeIcon.classList.remove("bi-eye-slash-fill");
-                    eyeIcon.classList.add("bi-eye-fill");
-                }
-            }
-        </script>
     </div>
 </body>
 </html>
