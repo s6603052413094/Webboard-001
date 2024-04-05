@@ -56,20 +56,26 @@
         </div>
  
         <table class="table table-striped mt-4">
-            <?php
+        <?php
                 $conn = new PDO("mysql:host=localhost;dbname=webboard;charset=utf8","root","");
                 $category_condition = (isset($_GET['category']) && $_GET['category'] != 'all') ? 'WHERE t3.id = ' . $_GET['category'] : '';
-                $sql = "SELECT t3.name, t1.title, t1.id, t2.login, t1.post_date FROM post as t1
-                    INNER JOIN user as t2 ON (t1.user_id = t2.id)
-                    INNER JOIN category as t3 ON (t1.cat_id = t3.id)
-                    $category_condition
-                    ORDER BY t1.post_date DESC";
+                $sql = "SELECT t3.name, t1.title, t1.id, t2.login, t1.post_date, t2.id as user_id, t2.role FROM post as t1
+                        INNER JOIN user as t2 ON (t1.user_id = t2.id)
+                        INNER JOIN category as t3 ON (t1.cat_id = t3.id)
+                        $category_condition
+                        ORDER BY t1.post_date DESC";
                 $result = $conn->query($sql);
                 while ($row = $result->fetch()) {
-                    echo "<tr><td class='d-flex justify-content-between'><div>[ $row[0] ] <a href=post.php?id=$row[2] style=text-decoration:none>$row[1]</a><br>$row[3] - $row[4]</div>";
+                    echo "<tr><td class='d-flex justify-content-between'><div>[ " . $row['name'] . " ] <a href='post.php?id=" . $row['id'] . "' style='text-decoration:none'>" . $row['title'] . "</a><br>" . $row['login'] . " - " . $row['post_date'] . "</div>";
                     
-                    if (isset($_SESSION['id']) && $_SESSION['role'] == 'a') {
-                        echo "<div class='me-2 align-self-center'><a href='delete.php?id=$row[2]' class='btn btn-danger btn-sm' onclick='return confirmDelete()'><i class='bi bi-trash'></i></a></div>";
+                    if (isset($_SESSION['id'])) {
+                        echo "<div class='me-2 align-self-center'>";
+                        if ($_SESSION['id'] == $row['user_id'] || $_SESSION['role'] == 'a') {
+                            echo "<a href='editpost.php?id=$row[id]' class='btn btn-warning btn-sm me-2'><i class='bi bi-pencil-fill'></i></a>";
+                        
+                            echo "<a href='delete.php?id=$row[id]' class='btn btn-danger btn-sm' onclick='return confirmDelete()'><i class='bi bi-trash'></i></a>";
+                        }
+                        echo "</div>";
                     }
                     
                     echo "</td></tr>";
@@ -79,11 +85,9 @@
         </table>
 
         <script>
-            function confirmDelete(postId) {
-                var confirmDelete = confirm('ต้องการลบจริงหรือไม่?');
-                if (confirmDelete) {
-                    window.location.href = 'delete.php?id=' + postId;
-                }
+            function confirmDelete() {
+                var confDelete = confirm('ต้องการลบจริงหรือไม่');
+                return confDelete;
             }
         </script>
     </div>
